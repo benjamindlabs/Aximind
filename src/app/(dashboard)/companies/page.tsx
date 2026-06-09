@@ -103,7 +103,7 @@ function CompaniesContent() {
 
       if (error) throw error
       setCompanies((data as unknown as Company[]) || [])
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching companies:', err?.message || 'Unknown error')
       showToast('error', 'Failed to load companies.')
     } finally {

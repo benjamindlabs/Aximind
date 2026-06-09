@@ -43,7 +43,7 @@ function DealDetailContent({ dealId }: { dealId: string }) {
         
         if (stageData) setStages(stageData)
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching deal:', error?.message || 'Unknown error')
       showToast('error', 'Failed to load deal details.')
     } finally {
@@ -69,7 +69,7 @@ function DealDetailContent({ dealId }: { dealId: string }) {
       
       showToast('success', `Deal marked as ${newStatus}.`)
       fetchDealData()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating status:', error?.message || 'Unknown error')
       showToast('error', 'Failed to update deal status.')
     } finally {
@@ -322,13 +322,8 @@ function DealDetailContent({ dealId }: { dealId: string }) {
   )
 }
 
-export default function DealDetailPage({ params }: { params: { id: string } }) {
-  // Use React.use() to unwrap params if needed in newer Next.js versions, but for simplicity we'll just pass it
-  // Actually Next.js 14/15 recommends not accessing params synchronously if it's dynamic, 
-  // but in a client component we can just read it. Wait, params is a Promise in Next.js 15.
-  // Better to unwrap it in a wrapper or pass it directly if we are sure of the Next version.
-  // We'll use React.use() just in case.
-  const resolvedParams = React.use(params as any) as { id: string }
+export default function DealDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = React.use(params) as { id: string }
 
   return (
     <ToastProvider>

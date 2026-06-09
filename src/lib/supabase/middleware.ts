@@ -33,7 +33,7 @@ export async function updateSession(request: NextRequest) {
     try {
         const { data } = await supabase.auth.getUser()
         user = data.user
-    } catch (error) {
+    } catch (error: any) {
         console.error('Middleware: Failed to get user session:', error?.message || 'Unknown error')
     }
 

@@ -322,7 +322,7 @@ export async function createContact(args: { first_name: string; last_name?: stri
           })
         }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Contact creation automation error:', err?.message || 'Unknown error')
     }
 
@@ -436,7 +436,7 @@ export async function createLead(args: { title: string; description?: string; st
           })
         }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Simple automation error:', err?.message || 'Unknown error')
       // Do NOT fail the lead creation if automation fails
     }
@@ -574,7 +574,7 @@ export async function updateDealStage(args: { deal_title: string; stage_name: st
           })
         }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Deal stage automation error:', err?.message || 'Unknown error')
     }
 
@@ -657,7 +657,7 @@ export async function markTaskComplete(args: { task_title: string }) {
           })
         }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Task completion automation error:', err?.message || 'Unknown error')
     }
 

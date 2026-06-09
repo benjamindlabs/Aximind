@@ -121,7 +121,7 @@ function LeadDetailContent() {
       }
 
       setLead(data as unknown as Lead)
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error loading lead detail:', err?.message || 'Unknown error')
       setNotFound(true)
     } finally {

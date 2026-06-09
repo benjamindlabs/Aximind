@@ -100,7 +100,7 @@ function ContactsContent() {
 
       if (error) throw error
       setContacts((data as unknown as Contact[]) || [])
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching contacts:', err?.message || 'Unknown error')
       showToast('error', 'Failed to load contacts.')
     } finally {

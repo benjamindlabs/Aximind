@@ -63,7 +63,7 @@ function ActivitiesContent() {
       if (error) throw error
       if (activityData) setActivities(activityData as Activity[])
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching activities:', error?.message || 'Unknown error')
       showToast('error', 'Failed to load activities.')
     } finally {
@@ -89,7 +89,7 @@ function ActivitiesContent() {
 
       showToast('success', 'Activity deleted successfully.')
       fetchActivities()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error deleting activity:', error?.message || 'Unknown error')
       showToast('error', 'Failed to delete activity.')
     } finally {

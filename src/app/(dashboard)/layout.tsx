@@ -68,7 +68,7 @@ export default function DashboardLayout({
           return
         }
         setUser(user)
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching user:', err?.message || 'Unknown error')
         router.push('/login')
       } finally {
@@ -116,7 +116,7 @@ export default function DashboardLayout({
       await supabase.auth.signOut()
       router.push('/login')
       router.refresh()
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error logging out:', err?.message || 'Unknown error')
     }
   }

@@ -481,7 +481,7 @@ export default function DashboardPage() {
         setPipelineOverview([])
       }
 
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching dashboard data:', err?.message || 'Unknown error')
       showToast('error', 'Failed to reload dashboard statistics.')
     } finally {
@@ -516,7 +516,7 @@ export default function DashboardPage() {
 
       if (error) throw error
       showToast('success', 'Task marked as completed.')
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error completing task:', err?.message || 'Unknown error')
       showToast('error', 'Failed to update task status.')
       // Rollback

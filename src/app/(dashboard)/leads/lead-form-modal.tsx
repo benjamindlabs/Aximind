@@ -122,7 +122,7 @@ export function LeadFormModal({ mode, lead, onSuccess, onClose }: LeadFormModalP
             label: c.name || c.id,
           }))
         )
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error loading dropdown lists for lead modal:', err?.message || 'Unknown error')
       } finally {
         setDropdownsLoading(false)

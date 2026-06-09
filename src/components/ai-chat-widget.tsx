@@ -72,7 +72,7 @@ export function AiChatWidget() {
             }
           }
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error('Failed to init chat', err?.message || 'Unknown error')
       }
     }

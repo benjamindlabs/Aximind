@@ -123,7 +123,7 @@ function ContactDetailContent() {
 
         setContact(data as unknown as Contact)
         setNotesValue((data as any).notes || '')
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching contact:', err?.message || 'Unknown error')
         setNotFound(true)
       } finally {

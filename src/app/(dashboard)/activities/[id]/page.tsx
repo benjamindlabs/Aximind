@@ -32,7 +32,7 @@ function ActivityDetailContent({ activityId }: { activityId: string }) {
 
         if (error) throw error
         setActivity(data as Activity)
-      } catch (error) {
+      } catch (error: any) {
         console.error('Error fetching activity:', error?.message || 'Unknown error')
         showToast('error', 'Failed to load activity details.')
       } finally {
@@ -219,8 +219,8 @@ function ActivityDetailContent({ activityId }: { activityId: string }) {
   )
 }
 
-export default function ActivityDetailPage({ params }: { params: { id: string } }) {
-  const resolvedParams = React.use(params as any) as { id: string }
+export default function ActivityDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = React.use(params) as { id: string }
 
   return (
     <ToastProvider>

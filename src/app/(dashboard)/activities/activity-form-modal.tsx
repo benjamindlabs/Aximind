@@ -120,7 +120,7 @@ export function ActivityFormModal({ onSuccess, onClose }: ActivityFormModalProps
           })))
         }
 
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching relational data:', err?.message || 'Unknown error')
       } finally {
         setFetchingData(false)

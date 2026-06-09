@@ -141,7 +141,7 @@ function LeadsContent() {
 
       if (error) throw error
       setLeads((data as unknown as Lead[]) || [])
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching leads:', err?.message || 'Unknown error')
       showToast('error', 'Failed to load leads.')
     } finally {

@@ -68,7 +68,7 @@ function TasksContent() {
       if (error) throw error
       if (taskData) setTasks(taskData as Task[])
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching tasks:', error?.message || 'Unknown error')
       showToast('error', 'Failed to load tasks.')
     } finally {
@@ -100,7 +100,7 @@ function TasksContent() {
 
       if (error) throw error
       showToast('success', 'Task completed')
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error completing task:', error?.message || 'Unknown error')
       showToast('error', 'Failed to complete task.')
       fetchTasks() // Revert on error
@@ -121,7 +121,7 @@ function TasksContent() {
 
       showToast('success', 'Task deleted successfully.')
       fetchTasks()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error deleting task:', error?.message || 'Unknown error')
       showToast('error', 'Failed to delete task.')
     } finally {

@@ -100,7 +100,7 @@ function DealsContent() {
       
       if (dealData) setDeals(dealData as Deal[])
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching deals:', error?.message || 'Unknown error')
       showToast('error', 'Failed to load deals.')
     } finally {
@@ -135,7 +135,7 @@ function DealsContent() {
         setDeals(prev => prev.map(d => d.id === dealId ? (dealData as Deal) : d))
       }
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error moving deal:', error?.message || 'Unknown error')
       showToast('error', 'Failed to update deal stage.')
       fetchDealsAndStages() // revert on error
@@ -156,7 +156,7 @@ function DealsContent() {
 
       showToast('success', 'Deal deleted successfully.')
       fetchDealsAndStages()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error deleting deal:', error?.message || 'Unknown error')
       showToast('error', 'Failed to delete deal.')
     } finally {

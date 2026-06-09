@@ -33,7 +33,7 @@ function TaskDetailContent({ taskId }: { taskId: string }) {
 
       if (error) throw error
       setTask(taskData as Task)
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching task:', error?.message || 'Unknown error')
       showToast('error', 'Failed to load task details.')
     } finally {
@@ -68,7 +68,7 @@ function TaskDetailContent({ taskId }: { taskId: string }) {
       
       showToast('success', `Task marked as ${newStatus.replace('_', ' ')}.`)
       fetchTaskData()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating status:', error?.message || 'Unknown error')
       showToast('error', 'Failed to update task status.')
     } finally {
@@ -286,8 +286,8 @@ function TaskDetailContent({ taskId }: { taskId: string }) {
   )
 }
 
-export default function TaskDetailPage({ params }: { params: { id: string } }) {
-  const resolvedParams = React.use(params as any) as { id: string }
+export default function TaskDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = React.use(params) as { id: string }
 
   return (
     <ToastProvider>
