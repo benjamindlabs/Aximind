@@ -42,7 +42,6 @@ const mainNavItems: NavItem[] = [
   { name: 'Activities', href: '/activities', icon: Activity },
   { name: 'Automations', href: '/automations', icon: Zap },
   { name: 'AI Assistant', href: '/ai-assistant', icon: Bot },
-  { name: 'Settings', href: '/settings', icon: Settings },
 ]
 
 export default function DashboardLayout({
